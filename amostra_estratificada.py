@@ -8,12 +8,14 @@ iris = pd.read_csv('iris.csv')
 iris['class'].value_counts()
 
 
-
-# iris.iloc[:, 0:4]: buscamos somente os atributos previsores, ou seja, os dados sobre pétala e sétala da planta
-# iris.iloc[:, 4]: buscamos somente a classe, que é a espécie da planta (setosa, virginica ou versicolor)
-# test_size: selecionamos 50% da base de dados, que serão copiados para as variáveis X e Y. Essa função retorna 4 valores,
-# porém, vamos usar somente os 50% da base de dados e por isso colocamos "_" para os outros valores
-# stratify: para retornar a amostra baseada na classe
+"""
+iris.iloc[:, 0:4]: buscamos somente os atributos previsores, ou seja, os dados sobre pétala e sétala da planta
+iris.iloc[:, 4]: buscamos somente a classe, que é a espécie da planta (setosa, virginica ou versicolor)
+test_size: selecionamos 50% da base de dados, que serão copiados para as variáveis X e Y. Essa função retorna 4 valores,
+porém, vamos usar somente os 50% da base de dados e por isso colocamos "_" para os outros valores
+stratify: para retornar a amostra baseada na classe
+"""  
+  
 X, _, y, _ = train_test_split(iris.iloc[:, 0:4], iris.iloc[:, 4],
                               test_size = 0.5, stratify = iris.iloc[:,4])
 y.value_counts()
